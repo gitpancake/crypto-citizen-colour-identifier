@@ -25,4 +25,3 @@ python3 -m pip install --upgrade Pillow
 ```
 
 - The labeled data will be output in `./colours`
-# crypto-citizen-colour-identifier
