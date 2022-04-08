@@ -2,6 +2,11 @@ from PIL import Image
 import ntpath
 import os
 
+basePath = './colours/'
+
+if not os.path.exists(basePath):
+	os.makedirs(basePath)
+
 def identifyImageColour(filePath):
 	fileName = ntpath.basename(filePath)
 	fileName = fileName.replace('.png', '')
@@ -14,8 +19,6 @@ def identifyImageColour(filePath):
 	
 	largestNum = max(coloursArray)
 	numberPosition = (coloursArray.index(largestNum))
-
-	basePath = './colours/'
 
 	#array = [r,g,b], so position 2 = blue
 	if (numberPosition == 2):
