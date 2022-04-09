@@ -22,20 +22,20 @@ def identifyImageColour(filePath):
 
 	#array = [r,g,b], so position 2 = blue
 	if (numberPosition == 2):
-		# if blue shade > 145 then darker, so variant b
-		if (b > 145):
-			im.save(basePath + 'b_' + fileName + '.png')
-		# otherwise, lighter, so variant a
-		else:
+		# if blue shade < 150, then lighter variant
+		if (b < 145):
 			im.save(basePath + 'a_' + fileName + '.png')
+		# otherwise, darker variant
+		else:
+			im.save(basePath + 'b_' + fileName + '.png')
 
 	if (numberPosition == 0):
-		# no green = the colour must be red
-		if (g == 0):
-			im.save(basePath + 'd_' + fileName + '.png')
 		# green = the colour must be grey
-		else:
+		if (g > 0):
 			im.save(basePath + 'c_' + fileName + '.png')
+		# no green = the colour must be red
+		else:
+			im.save(basePath + 'd_' + fileName + '.png')
 
 files = (os.listdir('./files'))
 
